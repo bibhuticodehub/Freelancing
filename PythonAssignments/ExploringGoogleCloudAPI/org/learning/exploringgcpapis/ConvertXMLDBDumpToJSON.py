@@ -1,8 +1,10 @@
 import json
+from pathlib import Path
 
 import xmltodict
 
-db_dump_file="/home/bapu/Public/SampleData/gcp_migrate_tbl.xml"
+base_path = Path(__file__).parent
+db_dump_file = (base_path / "../../../input/gcp_migrate_tbl.xml").resolve()
 
 with open(db_dump_file) as xml_file:
     data_dict = xmltodict.parse(xml_file.read())
